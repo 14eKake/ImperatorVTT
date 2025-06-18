@@ -1,0 +1,1120 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+  
+    <!-- HEADER -->
+    <header class="sheet-header">
+      <div class="header-left">
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+      </div>
+      <div class="header-right">
+        <!-- Ligne 1 : Nom, Origine, Âge, Sexe -->
+        <div class="header-line">
+          <label>
+            <span class="label-text">Nom:</span>
+            <input name="name" type="text" value="{{data.name}}" placeholder="Nom du personnage" />
+          </label>
+          <label>
+            <span class="label-text">Origine:</span>
+            <input type="text" name="system.origin.region" value="{{systemData.origin.region}}" placeholder="Région" />
+          </label>
+          <label>
+            <span class="label-text">Âge:</span>
+            <input type="number" name="system.origin.age" value="{{systemData.origin.age}}" />
+          </label>
+          <label>
+            <span class="label-text">Sexe:</span>
+            <select name="data.gender">
+              <option value="male" {{#if (eq data.gender "male")}}selected{{/if}}>♂</option>
+              <option value="female" {{#if (eq data.gender "female")}}selected{{/if}}>♀</option>
+            </select>
+          </label>
+        </div>
+        <!-- Ligne 2 : Taille, Poids, Santé, Puissance -->
+        <div class="header-line">
+          <label>
+            <span class="label-text">Taille (m):</span>
+            <input type="number" name="system.origin.taille" value="{{systemData.origin.taille}}" />
+          </label>
+          <label>
+            <span class="label-text">Poids (kg):</span>
+            <input type="number" name="system.origin.poids" value="{{systemData.origin.poids}}" />
+          </label>
+
+          <!-- Exemple avec une table pour organiser les cases -->
+          <table class="health-table">
+            <tr>
+              <th>Statut</th>
+              <th colspan="4">Points</th>
+            </tr>
+            <tr>
+              <td>Indemne</td>
+              <td>
+                <input type="checkbox" name="system.health.indemne.0" {{#if (lookup systemData.health.indemne "0")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.indemne.1" {{#if (lookup systemData.health.indemne "1")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.indemne.2" {{#if (lookup systemData.health.indemne "2")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.indemne.3" {{#if (lookup systemData.health.indemne "3")}}checked{{/if}}>
+              </td>
+            </tr>
+            <tr>
+              <td>Sonné</td>
+              <td>
+                <input type="checkbox" name="system.health.sonne.0" {{#if (lookup systemData.health.sonne "0")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.sonne.1" {{#if (lookup systemData.health.sonne "1")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.sonne.2" {{#if (lookup systemData.health.sonne "2")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.sonne.3" {{#if (lookup systemData.health.sonne "3")}}checked{{/if}}>
+              </td>
+            </tr>
+            <tr>
+              <td>Bl. Lég.-1D</td>
+              <td>
+                <input type="checkbox" name="system.health.bleg.0" {{#if (lookup systemData.health.bleg "0")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.bleg.1" {{#if (lookup systemData.health.bleg "1")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.bleg.2" {{#if (lookup systemData.health.bleg "2")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.bleg.3" {{#if (lookup systemData.health.bleg "3")}}checked{{/if}}>
+              </td>
+            </tr>
+            <tr>
+              <td>Bl. Moy.-2D</td>
+              <td>
+                <input type="checkbox" name="system.health.bmoy.0" {{#if (lookup systemData.health.bmoy "0")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.bmoy.1" {{#if (lookup systemData.health.bmoy "1")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.bmoy.2" {{#if (lookup systemData.health.bmoy "2")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.bmoy.3" {{#if (lookup systemData.health.bmoy "3")}}checked{{/if}}>
+              </td>
+            </tr>
+            <tr>
+              <td>Bl. Grav.-3D</td>
+              <td>
+                <input type="checkbox" name="system.health.bgrav.0" {{#if (lookup systemData.health.bgrav "0")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.bgrav.1" {{#if (lookup systemData.health.bgrav "1")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.bgrav.2" {{#if (lookup systemData.health.bgrav "2")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.bgrav.3" {{#if (lookup systemData.health.bgrav "3")}}checked{{/if}}>
+              </td>
+            </tr>
+            <tr>
+              <td>Comas</td>
+              <td>
+                <input type="checkbox" name="system.health.coma.0" {{#if (lookup systemData.health.coma "0")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.coma.1" {{#if (lookup systemData.health.coma "1")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.coma.2" {{#if (lookup systemData.health.coma "2")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.coma.3" {{#if (lookup systemData.health.coma "3")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.coma.4" {{#if (lookup systemData.health.coma "4")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.coma.5" {{#if (lookup systemData.health.coma "5")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.coma.6" {{#if (lookup systemData.health.coma "6")}}checked{{/if}}>
+              </td>
+              <td>
+                <input type="checkbox" name="system.health.coma.7" {{#if (lookup systemData.health.coma "7")}}checked{{/if}}>
+              </td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+    </header>
+  
+    <!-- ONGLETS -->
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="attributes">Attributs &amp; Compétences</a>
+      <a class="item" data-tab="career">Carrière &amp; Avantages</a>
+      <a class="item" data-tab="equipment">Équipement &amp; Gloire</a>
+      <a class="item" data-tab="items">Objets</a>
+      <a class="item" data-tab="armor">Armure</a>
+    </nav>
+  
+    <!-- CORPS DE LA FICHE -->
+    <section class="sheet-body">   
+  
+        <!-- Onglet Attributs & Compétences -->
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            <!-- Section Attributs -->
+            <fieldset class="attributes-header-fieldset">
+            <legend>Attributs</legend>
+            <div class="attributes-grid">
+                <div class="attribute-column">
+                <label>Corpus</label>
+                <select name="system.characteristics.corpus.value">
+                    {{#each (range 0 6)}}
+                    <option value="{{this}}" {{#if (eq ../systemData.characteristics.corpus.value this)}}selected{{/if}}>{{this}}</option>
+                    {{/each}}
+                </select>
+                </div>
+                <div class="attribute-column">
+                <label>Charisma</label>
+                <select name="system.characteristics.charisma.value">
+                    {{#each (range 0 6)}}
+                    <option value="{{this}}" {{#if (eq ../systemData.characteristics.charisma.value this)}}selected{{/if}}>{{this}}</option>
+                    {{/each}}
+                </select>
+                </div>
+                <div class="attribute-column">
+                <label>Sensus</label>
+                <select name="system.characteristics.sensus.value">
+                    {{#each (range 0 6)}}
+                    <option value="{{this}}" {{#if (eq ../systemData.characteristics.sensus.value this)}}selected{{/if}}>{{this}}</option>
+                    {{/each}}
+                </select>
+                </div>
+                <div class="attribute-column">
+                <label>Spiritus</label>
+                <select name="system.characteristics.spiritus.value">
+                    {{#each (range 0 6)}}
+                    <option value="{{this}}" {{#if (eq ../systemData.characteristics.spiritus.value this)}}selected{{/if}}>{{this}}</option>
+                    {{/each}}
+                </select>
+                </div>
+            </div>
+            </fieldset>
+        
+            <!-- Section Compétences -->
+            <fieldset class="skills-fieldset">
+            <legend>Compétences <small>(les niveaux sont indépendants des valeurs d'attribut)</small></legend>
+            <div class="skills-grid">
+                <!-- Colonne pour Corpus -->
+                <div class="skill-column">
+                <h4>Corpus</h4>
+                <div class="skill-entry">
+                    <span class="skill-name">A.contondantes</span>
+                    <select name="system.skills.acontondantes.level">
+                    <option value="0" {{#if (eq systemData.skills.acontondantes.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.acontondantes.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.acontondantes.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.acontondantes.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.acontondantes.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.acontondantes.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.acontondantes.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">A.perforantes</span>
+                    <select name="system.skills.aperforantes.level">
+                    <option value="0" {{#if (eq systemData.skills.aperforantes.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.aperforantes.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.aperforantes.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.aperforantes.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.aperforantes.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.aperforantes.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.aperforantes.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">A.tranchantes</span>
+                    <select name="system.skills.atranchantes.level">
+                    <option value="0" {{#if (eq systemData.skills.atranchantes.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.atranchantes.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.atranchantes.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.atranchantes.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.atranchantes.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.atranchantes.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.atranchantes.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">A.jet (arc)</span>
+                    <select name="system.skills.ajetarc.level">
+                    <option value="0" {{#if (eq systemData.skills.ajetarc.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.ajetarc.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.ajetarc.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.ajetarc.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.ajetarc.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.ajetarc.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.ajetarc.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">A.jet (fronde)</span>
+                    <select name="system.skills.ajetfronde.level">
+                    <option value="0" {{#if (eq systemData.skills.ajetfronde.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.ajetfronde.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.ajetfronde.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.ajetfronde.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.ajetfronde.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.ajetfronde.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.ajetfronde.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">A.jet</span>
+                    <select name="system.skills.ajet.level">
+                    <option value="0" {{#if (eq systemData.skills.ajet.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.ajet.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.ajet.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.ajet.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.ajet.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.ajet.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.ajet.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Athlétisme</span>
+                    <select name="system.skills.athletisme.level">
+                    <option value="0" {{#if (eq systemData.skills.athletisme.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.athletisme.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.athletisme.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.athletisme.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.athletisme.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.athletisme.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.athletisme.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Bouclier</span>
+                    <select name="system.skills.bouclier.level">
+                    <option value="0" {{#if (eq systemData.skills.bouclier.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.bouclier.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.bouclier.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.bouclier.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.bouclier.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.bouclier.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.bouclier.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">C.attelage</span>
+                    <select name="system.skills.cattelage.level">
+                    <option value="0" {{#if (eq systemData.skills.cattelage.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.cattelage.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.cattelage.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.cattelage.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.cattelage.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.cattelage.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.cattelage.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Endurance</span>
+                    <select name="system.skills.endurance.level">
+                    <option value="0" {{#if (eq systemData.skills.endurance.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.endurance.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.endurance.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.endurance.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.endurance.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.endurance.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.endurance.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Équitation</span>
+                    <select name="system.skills.equitation.level">
+                    <option value="0" {{#if (eq systemData.skills.equitation.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.equitation.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.equitation.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.equitation.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.equitation.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.equitation.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.equitation.attribute" value="corpus" />
+                </div>
+                <div class="skill-entry">
+                  <span class="skill-name"> Escalade</span>
+                  <select name="system.skills.escalade.level">
+                  <option value="0" {{#if (eq systemData.skills.escalade.level 0)}}selected{{/if}}>0</option>
+                  <option value="1" {{#if (eq systemData.skills.escalade.level 1)}}selected{{/if}}>1</option>
+                  <option value="2" {{#if (eq systemData.skills.escalade.level 2)}}selected{{/if}}>2</option>
+                  <option value="3" {{#if (eq systemData.skills.escalade.level 3)}}selected{{/if}}>3</option>
+                  <option value="4" {{#if (eq systemData.skills.escalade.level 4)}}selected{{/if}}>4</option>
+                  <option value="5" {{#if (eq systemData.skills.escalade.level 5)}}selected{{/if}}>5</option>
+                  </select>
+                  <input type="hidden" name="system.skills.escalade.attribute" value="corpus" />
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name"> Esquive</span>
+                <select name="system.skills.esquive.level">
+                <option value="0" {{#if (eq systemData.skills.esquive.level 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.skills.esquive.level 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.skills.esquive.level 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.skills.esquive.level 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.skills.esquive.level 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.skills.esquive.level 5)}}selected{{/if}}>5</option>
+                </select>
+                <input type="hidden" name="system.skills.esquive.attribute" value="corpus" />
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name"> Natation</span>
+                <select name="system.skills.natation.level">
+                <option value="0" {{#if (eq systemData.skills.natation.level 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.skills.natation.level 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.skills.natation.level 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.skills.natation.level 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.skills.natation.level 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.skills.natation.level 5)}}selected{{/if}}>5</option>
+                </select>
+                <input type="hidden" name="system.skills.natation.attribute" value="corpus" />
+              </div>
+
+              <div class="skill-entry">
+                <span class="skill-name"> Pugilat</span>
+                <select name="system.skills.pugilat.level">
+                <option value="0" {{#if (eq systemData.skills.pugilat.level 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.skills.pugilat.level 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.skills.pugilat.level 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.skills.pugilat.level 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.skills.pugilat.level 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.skills.pugilat.level 5)}}selected{{/if}}>5</option>
+                </select>
+                <input type="hidden" name="system.skills.pugilat.attribute" value="corpus" />
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name"> Souplesse</span>
+                <select name="system.skills.souplesse.level">
+                <option value="0" {{#if (eq systemData.skills.souplesse.level 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.skills.souplesse.level 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.skills.souplesse.level 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.skills.souplesse.level 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.skills.souplesse.level 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.skills.souplesse.level 5)}}selected{{/if}}>5</option>
+                </select>
+                <input type="hidden" name="system.skills.souplesse.attribute" value="corpus" />
+              </div>
+              <div class="skill-entry">
+                <span class="skill-name"> Vol à la tire</span>
+                <select name="system.skills.volalatire.level">
+                <option value="0" {{#if (eq systemData.skills.volalatire.level 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.skills.volalatire.level 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.skills.volalatire.level 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.skills.volalatire.level 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.skills.volalatire.level 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.skills.volalatire.level 5)}}selected{{/if}}>5</option>
+                </select>
+                <input type="hidden" name="system.skills.volalatire.attribute" value="corpus" />
+              </div>
+
+            </div>
+        
+                <!-- Colonne Charisma -->
+                <div class="skill-column">
+                <h4>Charisma</h4>
+                <div class="skill-entry">
+                    <span class="skill-name">Arts lyriques</span>
+                    <select name="system.skills.artslyriques.level">
+                    <option value="0" {{#if (eq systemData.skills.artslyriques.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.artslyriques.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.artslyriques.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.artslyriques.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.artslyriques.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.artslyriques.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.artslyriques.attribute" value="charisma" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Commandement</span>
+                    <select name="system.skills.commandement.level">
+                    <option value="0" {{#if (eq systemData.skills.commandement.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.commandement.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.commandement.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.commandement.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.commandement.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.commandement.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.commandement.attribute" value="charisma" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Comédie/danse</span>
+                    <select name="system.skills.comedieDanse.level">
+                    <option value="0" {{#if (eq systemData.skills.comedieDanse.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.comedieDanse.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.comedieDanse.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.comedieDanse.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.comedieDanse.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.comedieDanse.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.comedieDanse.attribute" value="charisma" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Dressage</span>
+                    <select name="system.skills.dressage.level">
+                    <option value="0" {{#if (eq systemData.skills.dressage.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.dressage.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.dressage.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.dressage.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.dressage.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.dressage.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.dressage.attribute" value="charisma" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Marchandage</span>
+                    <select name="system.skills.marchandage.level">
+                    <option value="0" {{#if (eq systemData.skills.marchandage.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.marchandage.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.marchandage.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.marchandage.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.marchandage.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.marchandage.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.marchandage.attribute" value="charisma" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Persuasion</span>
+                    <select name="system.skills.persuasion.level">
+                    <option value="0" {{#if (eq systemData.skills.persuasion.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.persuasion.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.persuasion.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.persuasion.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.persuasion.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.persuasion.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.persuasion.attribute" value="charisma" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Politique</span>
+                    <select name="system.skills.politique.level">
+                    <option value="0" {{#if (eq systemData.skills.politique.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.politique.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.politique.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.politique.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.politique.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.politique.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.politique.attribute" value="charisma" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Psychologie</span>
+                    <select name="system.skills.psychologie.level">
+                    <option value="0" {{#if (eq systemData.skills.psychologie.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.psychologie.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.psychologie.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.psychologie.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.psychologie.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.psychologie.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.psychologie.attribute" value="charisma" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Réseau</span>
+                    <select name="system.skills.reseau.level">
+                    <option value="0" {{#if (eq systemData.skills.reseau.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.reseau.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.reseau.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.reseau.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.reseau.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.reseau.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.reseau.attribute" value="charisma" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Séduction</span>
+                    <select name="system.skills.seduction.level">
+                    <option value="0" {{#if (eq systemData.skills.seduction.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.seduction.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.seduction.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.seduction.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.seduction.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.seduction.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.seduction.attribute" value="charisma" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Us &amp; coutumes</span>
+                    <select name="system.skills.usCoutumes.level">
+                    <option value="0" {{#if (eq systemData.skills.usCoutumes.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.usCoutumes.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.usCoutumes.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.usCoutumes.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.usCoutumes.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.usCoutumes.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.usCoutumes.attribute" value="charisma" />
+                </div>
+                </div>
+        
+                <!-- Colonne Sensus -->
+                <div class="skill-column">
+                <h4>Sensus</h4>
+                <div class="skill-entry">
+                    <span class="skill-name">Bibliothèque</span>
+                    <select name="system.skills.bibliotheque.level">
+                    <option value="0" {{#if (eq systemData.skills.bibliotheque.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.bibliotheque.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.bibliotheque.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.bibliotheque.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.bibliotheque.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.bibliotheque.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.bibliotheque.attribute" value="sensus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Discrétion</span>
+                    <select name="system.skills.discretion.level">
+                    <option value="0" {{#if (eq systemData.skills.discretion.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.discretion.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.discretion.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.discretion.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.discretion.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.discretion.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.discretion.attribute" value="sensus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Divination</span>
+                    <select name="system.skills.divination.level">
+                    <option value="0" {{#if (eq systemData.skills.divination.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.divination.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.divination.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.divination.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.divination.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.divination.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.divination.attribute" value="sensus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Estimation</span>
+                    <select name="system.skills.estimation.level">
+                    <option value="0" {{#if (eq systemData.skills.estimation.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.estimation.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.estimation.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.estimation.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.estimation.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.estimation.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.estimation.attribute" value="sensus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Fouille</span>
+                    <select name="system.skills.fouille.level">
+                    <option value="0" {{#if (eq systemData.skills.fouille.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.fouille.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.fouille.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.fouille.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.fouille.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.fouille.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.fouille.attribute" value="sensus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Orientation</span>
+                    <select name="system.skills.orientation.level">
+                    <option value="0" {{#if (eq systemData.skills.orientation.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.orientation.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.orientation.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.orientation.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.orientation.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.orientation.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.orientation.attribute" value="sensus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Pièges</span>
+                    <select name="system.skills.pieges.level">
+                    <option value="0" {{#if (eq systemData.skills.pieges.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.pieges.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.pieges.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.pieges.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.pieges.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.pieges.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.pieges.attribute" value="sensus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Pistage</span>
+                    <select name="system.skills.pistage.level">
+                    <option value="0" {{#if (eq systemData.skills.pistage.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.pistage.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.pistage.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.pistage.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.pistage.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.pistage.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.pistage.attribute" value="sensus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Survie</span>
+                    <select name="system.skills.survie.level">
+                    <option value="0" {{#if (eq systemData.skills.survie.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.survie.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.survie.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.survie.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.survie.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.survie.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.survie.attribute" value="sensus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Vigilance</span>
+                    <select name="system.skills.vigilance.level">
+                    <option value="0" {{#if (eq systemData.skills.vigilance.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.vigilance.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.vigilance.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.vigilance.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.vigilance.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.vigilance.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.vigilance.attribute" value="sensus" />
+                </div>
+                </div>
+        
+                <!-- Colonne Spiritus -->
+                <div class="skill-column">
+                <h4>Spiritus</h4>
+                <div class="skill-entry">
+                    <span class="skill-name">Agriculture</span>
+                    <select name="system.skills.agriculture.level">
+                    <option value="0" {{#if (eq systemData.skills.agriculture.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.agriculture.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.agriculture.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.agriculture.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.agriculture.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.agriculture.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.agriculture.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Alchimie</span>
+                    <select name="system.skills.alchimie.level">
+                    <option value="0" {{#if (eq systemData.skills.alchimie.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.alchimie.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.alchimie.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.alchimie.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.alchimie.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.alchimie.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.alchimie.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Artillerie</span>
+                    <select name="system.skills.artillerie.level">
+                    <option value="0" {{#if (eq systemData.skills.artillerie.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.artillerie.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.artillerie.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.artillerie.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.artillerie.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.artillerie.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.artillerie.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Artisanat</span>
+                    <select name="system.skills.artisanat.level">
+                    <option value="0" {{#if (eq systemData.skills.artisanat.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.artisanat.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.artisanat.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.artisanat.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.artisanat.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.artisanat.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.artisanat.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Écriture</span>
+                    <select name="system.skills.ecriture.level">
+                    <option value="0" {{#if (eq systemData.skills.ecriture.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.ecriture.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.ecriture.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.ecriture.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.ecriture.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.ecriture.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.ecriture.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">G.patrimoine</span>
+                    <select name="system.skills.gpatrimoine.level">
+                    <option value="0" {{#if (eq systemData.skills.gpatrimoine.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.gpatrimoine.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.gpatrimoine.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.gpatrimoine.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.gpatrimoine.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.gpatrimoine.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.gpatrimoine.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Herboristerie</span>
+                    <select name="system.skills.herboristerie.level">
+                    <option value="0" {{#if (eq systemData.skills.herboristerie.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.herboristerie.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.herboristerie.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.herboristerie.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.herboristerie.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.herboristerie.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.herboristerie.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Histoire</span>
+                    <select name="system.skills.histoire.level">
+                    <option value="0" {{#if (eq systemData.skills.histoire.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.histoire.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.histoire.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.histoire.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.histoire.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.histoire.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.histoire.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Ingénierie</span>
+                    <select name="system.skills.ingenierie.level">
+                    <option value="0" {{#if (eq systemData.skills.ingenierie.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.ingenierie.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.ingenierie.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.ingenierie.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.ingenierie.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.ingenierie.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.ingenierie.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Langage</span>
+                    <select name="system.skills.langage.level">
+                    <option value="0" {{#if (eq systemData.skills.langage.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.langage.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.langage.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.langage.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.langage.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.langage.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.langage.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Médecine</span>
+                    <select name="system.skills.medecine.level">
+                    <option value="0" {{#if (eq systemData.skills.medecine.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.medecine.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.medecine.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.medecine.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.medecine.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.medecine.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.medecine.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Mythologie</span>
+                    <select name="system.skills.mythologie.level">
+                    <option value="0" {{#if (eq systemData.skills.mythologie.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.mythologie.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.mythologie.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.mythologie.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.mythologie.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.mythologie.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.mythologie.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Navigation</span>
+                    <select name="system.skills.navigation.level">
+                    <option value="0" {{#if (eq systemData.skills.navigation.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.navigation.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.navigation.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.navigation.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.navigation.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.navigation.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.navigation.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Occultisme</span>
+                    <select name="system.skills.occultisme.level">
+                    <option value="0" {{#if (eq systemData.skills.occultisme.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.occultisme.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.occultisme.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.occultisme.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.occultisme.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.occultisme.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.occultisme.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Résistance</span>
+                    <select name="system.skills.resistance.level">
+                    <option value="0" {{#if (eq systemData.skills.resistance.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.resistance.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.resistance.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.resistance.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.resistance.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.resistance.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.resistance.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Stratégie</span>
+                    <select name="system.skills.strategie.level">
+                    <option value="0" {{#if (eq systemData.skills.strategie.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.strategie.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.strategie.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.strategie.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.strategie.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.strategie.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.strategie.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Théologie</span>
+                    <select name="system.skills.theologie.level">
+                    <option value="0" {{#if (eq systemData.skills.theologie.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.theologie.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.theologie.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.theologie.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.theologie.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.theologie.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.theologie.attribute" value="spiritus" />
+                </div>
+                <div class="skill-entry">
+                    <span class="skill-name">Zoologie</span>
+                    <select name="system.skills.zoologie.level">
+                    <option value="0" {{#if (eq systemData.skills.zoologie.level 0)}}selected{{/if}}>0</option>
+                    <option value="1" {{#if (eq systemData.skills.zoologie.level 1)}}selected{{/if}}>1</option>
+                    <option value="2" {{#if (eq systemData.skills.zoologie.level 2)}}selected{{/if}}>2</option>
+                    <option value="3" {{#if (eq systemData.skills.zoologie.level 3)}}selected{{/if}}>3</option>
+                    <option value="4" {{#if (eq systemData.skills.zoologie.level 4)}}selected{{/if}}>4</option>
+                    <option value="5" {{#if (eq systemData.skills.zoologie.level 5)}}selected{{/if}}>5</option>
+                    </select>
+                    <input type="hidden" name="system.skills.zoologie.attribute" value="spiritus" />
+                </div>
+                </div>
+            </div>
+            <div class="skill-controls">
+                <button type="button" class="add-skill">Ajouter une compétence</button>
+            </div>
+            </fieldset>
+        
+            <!-- Section Expérience -->
+            <fieldset class="experience-fieldset">
+            <legend>Expérience</legend>
+            <label>Points d'expérience (PEX):
+                <input type="number" name="system.experience" value="{{systemData.experience}}" />
+            </label>
+            </fieldset>
+        </div>
+  
+  
+      <!-- Onglet Carrière & Avantages -->
+      <div class="tab career" data-group="primary" data-tab="career">
+        <fieldset>
+          <legend>Carrière &amp; Avantages / Défauts</legend>
+          <div class="career-section">
+            <label>Carrière Primaire:
+              <input type="text" name="system.career.primary.name" value="{{systemData.career.primary.name}}" placeholder="Nom de la carrière primaire">
+            </label>
+            <label>Carrière Secondaire:
+              <input type="text" name="system.career.secondary.name" value="{{systemData.career.secondary.name}}" placeholder="Nom de la carrière secondaire">
+            </label>
+            <label>Carrière Tertiaire:
+              <input type="text" name="system.career.tertiary.name" value="{{systemData.career.tertiary.name}}" placeholder="Nom de la carrière tertiaire">
+            </label>
+          </div>
+          <div class="advantages-defects">
+            <label>Avantages:
+              <textarea name="system.advantages" placeholder="Liste d'avantages séparés par des virgules">{{systemData.advantages}}</textarea>
+            </label>
+            <label>Défauts:
+              <textarea name="system.defects" placeholder="Liste de défauts séparés par des virgules">{{systemData.defects}}</textarea>
+            </label>
+          </div>
+        </fieldset>
+      </div>
+  
+      <!-- Onglet Équipement & Gloire -->
+      <div class="tab equipment" data-group="primary" data-tab="equipment">
+        <fieldset>
+          <legend>Équipement &amp; Gloire</legend>
+          <div class="equipment-section">
+            <label>Sesterces en bourse:
+              <input type="number" name="system.equipment.gold" value="{{systemData.equipment.gold}}" />
+            </label>
+            <label>Équipement (format JSON ou liste):
+              <textarea name="system.equipment.items" placeholder='[{"name": "Épée", "weight": 2}]'>{{systemData.equipment.items}}</textarea>
+            </label>
+          </div>
+          <div class="glory-section">
+            <label>Niveau de Gloire:
+              <input type="number" name="system.glory.level" value="{{systemData.glory.level}}" />
+            </label>
+            <label>Points de Gloire Disponibles:
+              <input type="number" name="system.glory.points" value="{{systemData.glory.points}}" />
+            </label>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Onglet Objets -->
+      <div class="tab items" data-group="primary" data-tab="items">
+         <ol class="item-list">
+            {{#each data.items as |item id|}}
+            <li class="item flexrow" data-item-id="{{item._id}}">
+                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                <h4 class="item-name">{{item.name}}</h4>
+                <div class="item-buttons">
+                  {{#each item.system.attributes as |itemAttr key|}}
+                    {{#if itemAttr.dtype}}
+                      {{#if itemAttr.isFormula}}
+                        {{#if ../../shorthand}}
+                          <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}" data-label="{{ itemAttr.label }}" title="{{itemAttr.value}}">
+                            {{itemAttr.label}}
+                            </button>
+                        {{else}}
+                          <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.attributes.{{key}}.value" data-label="{{ itemAttr.label }}" title="{{itemAttr.value}}">
+                            {{itemAttr.label}}
+                          </button>
+                        {{/if}}
+                      {{/if}}
+                    {{else}}
+                      {{#each itemAttr as |itemGroupedAttr groupedKey|}}
+                        {{#if itemGroupedAttr.isFormula}}
+                          {{#if ../../../shorthand}}
+                            <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}.{{groupedKey}}" data-label="{{ itemGroupedAttr.label }}" title="{{itemGroupedAttr.value}}">
+                              {{itemGroupedAttr.label}}
+                            </button>
+                          {{else}}
+                             <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.attributes.{{key}}.{{groupedKey}}.value" data-label="{{ itemGroupedAttr.label }}" title="{{itemGroupedAttr.value}}">
+                              {{itemGroupedAttr.label}}
+                            </button>
+                           {{/if}}
+                        {{/if}}
+                      {{/each}}
+                    {{/if}}
+                  {{/each}}
+                </div>
+                <div class="item-controls">
+                  <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit"><i class="fas fa-edit"></i></a>
+                  <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+                </div>
+              </li>
+            {{/each}}
+          </ol>
+          <p>
+            <a class="item-control" title="{{ localize "SIMPLE.ItemCreate" }}" data-action="create">
+              <i class="fas fa-plus"></i> {{ localize "SIMPLE.ItemCreate" }}
+            </a>
+          </p>
+      </div>
+        
+      <!-- Nouvel Onglet Armure -->
+      <div class="tab armor" data-group="primary" data-tab="armor">
+        <fieldset>
+          <legend>Armure</legend>
+          <div class="armor-manikin">
+            <!-- Image du mannequin -->
+            <img class="mannequin-image" src="systems/imperator/templates/images/manequin.png" alt="Mannequin Armure">
+            
+            <!-- Menu déroulant pour la Tête -->
+            <div class="armor-select head" data-part="head" title="Tête">
+              <select class="armor-dropdown" name="system.armor.head">
+                <option value="0" {{#if (eq systemData.armor.head 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.armor.head 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.armor.head 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.armor.head 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.armor.head 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.armor.head 5)}}selected{{/if}}>5</option>
+                <option value="6" {{#if (eq systemData.armor.head 5)}}selected{{/if}}>6</option>
+              </select>
+            </div>
+
+            <!-- Menu déroulant pour le Torse -->
+            <div class="armor-select torso" data-part="torso" title="Torse">
+              <select class="armor-dropdown" name="system.armor.torso">
+                <option value="0" {{#if (eq systemData.armor.torso 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.armor.torso 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.armor.torso 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.armor.torso 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.armor.torso 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.armor.torso 5)}}selected{{/if}}>5</option>
+                <option value="6" {{#if (eq systemData.armor.torso 5)}}selected{{/if}}>6</option>
+              </select>
+            </div>
+
+            <!-- Menu déroulant pour le Bras gauche -->
+            <div class="armor-select left-arm" data-part="leftArm" title="Bras gauche">
+              <select class="armor-dropdown" name="system.armor.leftArm">
+                <option value="0" {{#if (eq systemData.armor.leftArm 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.armor.leftArm 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.armor.leftArm 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.armor.leftArm 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.armor.leftArm 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.armor.leftArm 5)}}selected{{/if}}>5</option>
+                <option value="6" {{#if (eq systemData.armor.leftArm 5)}}selected{{/if}}>6</option>
+              </select>
+            </div>
+
+            <!-- Menu déroulant pour le Bras droit -->
+            <div class="armor-select right-arm" data-part="rightArm" title="Bras droit">
+              <select class="armor-dropdown" name="system.armor.rightArm">
+                <option value="0" {{#if (eq systemData.armor.rightArm 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.armor.rightArm 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.armor.rightArm 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.armor.rightArm 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.armor.rightArm 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.armor.rightArm 5)}}selected{{/if}}>5</option>
+                <option value="6" {{#if (eq systemData.armor.rightArm 5)}}selected{{/if}}>6</option>
+
+              </select>
+            </div>
+
+            <!-- Menu déroulant pour la Jambe gauche -->
+            <div class="armor-select left-leg" data-part="leftLeg" title="Jambe gauche">
+              <select class="armor-dropdown" name="system.armor.leftLeg">
+                <option value="0" {{#if (eq systemData.armor.leftLeg 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.armor.leftLeg 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.armor.leftLeg 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.armor.leftLeg 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.armor.leftLeg 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.armor.leftLeg 5)}}selected{{/if}}>5</option>
+                <option value="6" {{#if (eq systemData.armor.leftLeg 5)}}selected{{/if}}>6</option>
+
+              </select>
+            </div>
+
+            <!-- Menu déroulant pour la Jambe droite -->
+            <div class="armor-select right-leg" data-part="rightLeg" title="Jambe droite">
+              <select class="armor-dropdown" name="system.armor.rightLeg">
+                <option value="0" {{#if (eq systemData.armor.rightLeg 0)}}selected{{/if}}>0</option>
+                <option value="1" {{#if (eq systemData.armor.rightLeg 1)}}selected{{/if}}>1</option>
+                <option value="2" {{#if (eq systemData.armor.rightLeg 2)}}selected{{/if}}>2</option>
+                <option value="3" {{#if (eq systemData.armor.rightLeg 3)}}selected{{/if}}>3</option>
+                <option value="4" {{#if (eq systemData.armor.rightLeg 4)}}selected{{/if}}>4</option>
+                <option value="5" {{#if (eq systemData.armor.rightLeg 5)}}selected{{/if}}>5</option>
+                <option value="6" {{#if (eq systemData.armor.rightLeg 5)}}selected{{/if}}>6</option>
+
+              </select>
+            </div>
+
+            
+          </div>
+        </fieldset>
+      </div>
+
+
+    </section>
+  </form>
+  

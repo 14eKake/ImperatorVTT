@@ -1,0 +1,37 @@
+{
+  "id": "imperator",
+  "version": "0.0.1",
+  "title": "Imperator VTT",
+  "url": "",
+  "description": "Un systéme simple pour jouer à Imperator, baser entièrement sur le code de Atropos dans le cadre de son Simple imperator System for Foundry",
+  "license": "LICENSE.txt",
+  "authors": [
+    {
+      "name": "Kake",
+      "url": "https://foundryvtt.com"
+    }
+  ],
+  "esmodules": [ "module/simple.js" ],
+  "styles": [ "styles/simple.css","styles/vehicle-sheet.css" ],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "pl",
+      "name": "Polski",
+      "path": "lang/pl.json"
+    }
+  ],
+  "compatibility": {
+    "minimum": "10",
+    "verified": "11"
+  },
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "manifest": "",
+  "download": ""
+}

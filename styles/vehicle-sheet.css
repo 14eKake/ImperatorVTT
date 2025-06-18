@@ -1,0 +1,99 @@
+/* vehicle-sheet.css */
+
+/* Conteneur général de la fiche véhicule */
+.vehicle-sheet {
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: "Arial", sans-serif;
+    padding: 1em;
+  }
+  
+  /* Header de la fiche */
+  .vehicle-sheet .sheet-header {
+    display: flex;
+    gap: 1em;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+  }
+  
+  /* Image du véhicule */
+  .vehicle-sheet .vehicle-img {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-width: 150px;
+  }
+  
+  /* Informations dans le header */
+  .vehicle-sheet .header-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+  }
+  
+  .vehicle-sheet .header-line {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+  
+  .vehicle-sheet .label-text {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  /* Champs d'entrée et sélection */
+  .vehicle-sheet input[type="text"],
+  .vehicle-sheet input[type="number"],
+  .vehicle-sheet select,
+  .vehicle-sheet textarea {
+    font-size: 1em;
+    padding: 4px 8px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Onglets */
+  .vehicle-sheet .sheet-tabs {
+    margin-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .vehicle-sheet .sheet-tabs .item {
+    display: inline-block;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  .vehicle-sheet .sheet-tabs .item.active {
+    border-bottom: 2px solid #333;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Corps de la fiche */
+  .vehicle-sheet .sheet-body {
+    padding: 1em;
+  }
+  
+  /* Grille de statistiques */
+  .vehicle-sheet .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+  
+  .vehicle-sheet .stat-entry {
+    flex: 1 1 200px;
+    align-items: center;
+  }
+  
+  .vehicle-sheet .stat-entry label {
+    margin-right: 5px;
+    font-weight: bold;
+  }
+  

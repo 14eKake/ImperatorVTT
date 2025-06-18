@@ -1,0 +1,475 @@
+/* ************************************************** */
+/*   STYLES GLOBAUX POUR LE SYSTÈME IMPERATOR         */
+/* ************************************************** */
+
+.imperator {
+  /* Vous pouvez mettre des styles globaux ici */
+}
+
+.imperator .window-content {
+  height: 100%;
+  padding: 5px;
+  overflow-y: hidden;
+}
+
+.imperator form {
+  height: 100%;
+}
+
+/* ************************************************** */
+/*   HEADER DE LA FICHE (IMAGE + CHAMPS)              */
+/* ************************************************** */
+
+/* Le conteneur principal du header */
+.sheet-header {
+  flex: 0 0 20%;
+  /* Gardez vos autres règles du header ici */
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  margin-bottom: 0.2em;
+  overflow: visible;
+}
+.sheet header.sheet-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Bloc de gauche pour l’image */
+.header-left {
+  flex: 0;              /* Occupe tout l'espace restant */
+  display:block;
+  flex-direction: column; /* On empile les lignes verticalement */
+  gap: 0.5em;           /* Espace vertical entre chaque .header-line */
+  height: auto;
+  width: auto;
+}
+
+/* Image de profil */
+.profile-img {
+  flex: 1;              /* Occupe tout l'espace restant */
+  border: 1px solid #888;
+  border-radius: 3px;
+  background-color: transparent;
+  margin-right: 1px;    /* Petit espace éventuel à droite */
+}
+.sheet header.sheet-header img {
+  /* flex: 0 0 98px; */
+  width: 200px;
+  height: 200px;
+  margin-right: 1px;
+}
+
+/* Bloc de droite pour les champs */
+.header-right {
+  flex: 1;              /* Occupe tout l'espace restant */
+  display: flex;
+  flex-direction: column; /* On empile les lignes verticalement */
+  gap: 0.5em;           /* Espace vertical entre chaque .header-line */
+  height: auto;
+}
+
+/* Chaque ligne de champs (Nom, Origine, etc.) */
+.header-line {
+  display: flex;
+  flex-direction: row;  /* Les champs d'une même ligne sont alignés horizontalement */
+  gap: 1em;             /* Espace horizontal entre les labels */
+}
+
+/* Label par défaut (le texte au-dessus, le champ en dessous) */
+.header-line label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9em;
+}
+
+/* Ajuster la largeur des inputs si besoin */
+.header-line input[type="text"],
+.header-line input[type="number"],
+.header-line select {
+  width: auto;
+  min-width: 80px;       /* Ajustez si besoin */
+  margin-top: 2px;       /* Petit espace entre le label et le champ */
+}
+
+/* ************************************************** */
+/*   ONGLETS (Description, Objets, etc.)             */
+/* ************************************************** */
+
+.imperator .tabs {
+  flex: 0 0 40px;
+  border-top: 1px solid #AAA;
+  border-bottom: 1px solid #AAA;
+}
+
+.imperator .tabs .item {
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.imperator .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+/* La section (body) occupe le reste, soit 80% */
+.sheet-body {
+  flex: 1 1 80%;
+  overflow-y: auto;
+}
+
+.imperator .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.imperator .editor,
+.imperator .editor-content {
+  height: 100%;
+}
+
+/* ************************************************** */
+/*   LISTE D'ITEMS                                   */
+/* ************************************************** */
+
+.imperator .item-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.imperator .item-list .item {
+  min-height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+  align-items: stretch;
+  display: flex;
+}
+
+.imperator .item-list .item img {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+
+.imperator .item-list .item-name {
+  margin: 0;
+}
+
+.imperator .item-list .item-controls {
+  flex: 0 0 36px;
+}
+
+.imperator .item-list .item-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  flex: 2;
+  justify-content: flex-start;
+}
+
+.imperator .item-list .item-button {
+  line-height: 1;
+  font-size: 11px;
+  flex: none;
+  width: auto;
+}
+
+/* ************************************************** */
+/*   ATTRIBUTS PERSONNALISÉS                         */
+/* ************************************************** */
+
+.imperator .attributes {
+  position: relative;
+}
+
+.imperator .attributes .attribute-control,
+.imperator .attributes .group-control {
+  flex: 0 0 20px;
+  text-align: center;
+  line-height: 28px;
+  border: none;
+}
+
+.imperator .attributes .attribute-roll {
+  flex: 0 0 20px;
+  text-align: center;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imperator .attributes .group-prefix {
+  height: 31px;
+  margin-right: 10px;
+}
+
+.imperator .attributes .attribute-key {
+  background: transparent;
+  border: none;
+}
+
+.imperator .attributes-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  align-items: center;
+  padding: 0 5px;
+  margin: 5px 0;
+  background: #cfcdc2;
+  border: 1px solid #AAA;
+  border-radius: 2px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.imperator .attributes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.imperator .attributes-list li > * {
+  margin: 0 3px;
+  height: 28px;
+  line-height: 24px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #AAA;
+}
+
+/* ************************************************** */
+/*   GROUPES D'ATTRIBUTS                             */
+/* ************************************************** */
+
+.imperator .group-controls {
+  margin: 5px;
+}
+
+.imperator .groups-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.imperator .group {
+  margin: 5px 0 0;
+  padding: 0;
+}
+
+.imperator .group-header {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #AAA;
+  border-radius: 2px;
+  padding: 2px 5px;
+  display: flex;
+}
+
+.imperator .group-key,
+.imperator .group-label {
+  font-weight: bold;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  background: transparent;
+  border-radius: 0;
+  margin-right: 6px;
+}
+
+.imperator .group-key {
+  opacity: 0.75;
+}
+
+.imperator .group-label {
+  flex: 2;
+}
+
+.imperator .group-dtype {
+  height: 24px;
+  flex: 0 0 116px;
+  margin: 0 5px;
+}
+
+/* ************************************************** */
+/*   DIMENSIONS MINIMALES POUR LES FICHES            */
+/* ************************************************** */
+
+.imperator.sheet.actor {
+  min-width: 560px;
+  min-height: 420px;
+}
+
+.imperator.sheet.item {
+  min-width: 460px;
+  min-height: 400px;
+}
+
+/* ************************************************** */
+/*   COMPÉTENCES (GRILLE 4 COLONNES)                 */
+/* ************************************************** */
+
+.skills-fieldset {
+  width: 100%;
+  margin-top: 1em;
+}
+
+/* Le conteneur qui regroupe les colonnes de compétences */
+.skills-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1em;       /* Espace horizontal entre les colonnes */
+  width: 100%;    /* Toute la largeur */
+}
+
+.skill-column {
+  flex: 1;        /* Les colonnes s'étendent de façon égale */
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.skill-column h4 {
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.skill-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6em;
+}
+
+.skill-name {
+  flex: 1;
+  text-align: left;
+  margin-right: 0.5em;
+}
+
+.skill-entry select {
+  width: 6em;
+  text-align: center;
+}
+
+.skill-controls {
+  margin-top: 1em;
+  text-align: center;
+}
+
+/* ************************************************** */
+/*   SECTION DES ATTRIBUTS (Corpus, Charisma, etc.)   */
+/* ************************************************** */
+
+.attributes-header-fieldset {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.attributes-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+
+.attribute-column {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  min-width: 100px;
+  max-width: 300px;
+}
+
+.attribute-column label {
+  margin-right: 0.5em;
+  font-weight: bold;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.attribute-column select {
+  width: 4em;
+  text-align: center;
+}
+
+/* ************************************************** */
+/*   STYLE DES ONGLETS SPÉCIFIQUES (optionnel)        */
+/* ************************************************** */
+
+/* Si vous aviez un onglet "principal-characteristics" à masquer/afficher */
+.imperator .tabs .item[data-tab="principal-characteristics"] {
+  cursor: pointer;
+  padding: 10px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.imperator .sheet-body .tab[data-tab="principal-characteristics"] {
+  display: none; /* caché par défaut */
+}
+
+.imperator .sheet-body .tab.active[data-tab="principal-characteristics"] {
+  display: block; /* afficher lorsque cet onglet est actif */
+}
+
+
+/* -------------------------------------------------- */
+/*         SECTION ARMURE (ONGLET ARMURE)           */
+/* -------------------------------------------------- */
+
+/* Conteneur du mannequin d'armure */
+.armor-manikin {
+  position: relative;
+  display: inline-block;
+  margin-top: 1em;
+  line-height: 0; /* Élimine les espaces indésirables */
+}
+
+/* Image du mannequin */
+.armor-manikin img {
+  display: block;
+  max-width: 70%;
+  height: auto;
+}
+
+/* Conteneur pour chaque menu déroulant (placé sur l'image) */
+.armor-select {
+  position: absolute;
+}
+
+/* Positionnement des menus (les pourcentages se réfèrent à la taille de l'image) */
+.armor-select.head    { top: 8%;  left: 30%; }
+.armor-select.torso   { top: 35%; left: 30%; }
+.armor-select.left-arm  { top: 35%; left: 7%; }
+.armor-select.right-arm { top: 35%; right: 35%; }
+.armor-select.left-leg  { top: 70%; left: 20%; }
+.armor-select.right-leg { top: 70%; right: 50%; }
+
+/* Style du menu déroulant */
+.armor-dropdown {
+  font-size: 1em;
+  padding: 3px 5px;
+  width: auto;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+}
+.sheet-background {
+  background-image: url("../templates/images/Fond2.webp");
+  background-size: cover;        /* L'image couvre tout le conteneur */
+  background-position: center;   /* L'image est centrée */
+  background-repeat: no-repeat;   /* L'image ne se répète pas */
+}

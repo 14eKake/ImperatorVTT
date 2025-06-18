@@ -1,0 +1,174 @@
+{
+  "Actor": {
+    "types": ["character", "PNJ", "vehicle"],
+    "htmlFields": ["biography"],
+    "character": {
+      "biography": "",
+      "origin": {
+        "region": "",
+        "languages": [],
+        "culture": "",
+        "taille": "",
+        "age": "",
+        "poids":""
+      },
+      "creationPoints": 200,
+      "health": {
+        "value": 10,
+        "min": 0,
+        "max": 10
+      },
+      "power": {
+        "value": 5,
+        "min": 0,
+        "max": 5
+      },
+      "characteristics": {
+        "corpus": {
+          "value": 0,
+          "label": "Corpus",
+          "modifier": []
+        },
+        "charisma": {
+          "value": 0,
+          "label": "Charisma",
+          "modifier": []
+        },
+        "sensus": {
+          "value": 0,
+          "label": "Sensus",
+          "modifier": []
+        },
+        "spiritus": {
+          "value": 0,
+          "label": "Spiritus",
+          "modifier": []
+        }
+      },
+      "career": {
+        "primary": {},
+        "secondary": {},
+        "tertiary": {}
+      },
+      "advantages": [],
+      "defects": [],
+      "skills": {
+        "acontondantes": { "name": "A.contondantes", "level": 0, "attribute": "corpus" },
+        "aperforantes": { "name": "A.perforantes", "level": 0, "attribute": "corpus" },
+        "atranchantes": { "name": "A.tranchantes", "level": 0, "attribute": "corpus" },
+        "ajetarc": { "name": "A.jet (arc)", "level": 0, "attribute": "corpus" },
+        "ajetfronde": { "name": "A.jet (fronde)", "level": 0, "attribute": "corpus" },
+        "ajet": { "name": "A.jet", "level": 0, "attribute": "corpus" },
+        "athletisme": { "name": "Athlétisme", "level": 0, "attribute": "corpus" },
+        "bouclier": { "name": "Bouclier", "level": 0, "attribute": "corpus" },
+        "cattelage": { "name": "C.attelage", "level": 0, "attribute": "corpus" },
+        "endurance": { "name": "Endurance", "level": 0, "attribute": "corpus" },
+        "equitation": { "name": "Équitation", "level": 0, "attribute": "corpus" },
+        "escalade": { "name": "Escalade", "level": 0, "attribute": "corpus" },
+        "esquive": { "name": "Esquive", "level": 0, "attribute": "corpus" },
+        "natation": { "name": "Natation", "level": 0, "attribute": "corpus" },
+        "pugilat": { "name": "Pugilat", "level": 0, "attribute": "corpus" },
+        "souplesse": { "name": "Souplesse", "level": 0, "attribute": "corpus" },
+        "volatlatire": { "name": "Vol à la tire", "level": 0, "attribute": "corpus" },
+
+        "artslyriques": { "name": "Arts lyriques", "level": 0, "attribute": "charisma" },
+        "commandement": { "name": "Commandement", "level": 0, "attribute": "charisma" },
+        "comedieDanse": { "name": "Comédie/danse", "level": 0, "attribute": "charisma" },
+        "dressage": { "name": "Dressage", "level": 0, "attribute": "charisma" },
+        "marchandage": { "name": "Marchandage", "level": 0, "attribute": "charisma" },
+        "persuasion": { "name": "Persuasion", "level": 0, "attribute": "charisma" },
+        "politique": { "name": "Politique", "level": 0, "attribute": "charisma" },
+        "psychologie": { "name": "Psychologie", "level": 0, "attribute": "charisma" },
+        "reseau": { "name": "Réseau", "level": 0, "attribute": "charisma" },
+        "seduction": { "name": "Séduction", "level": 0, "attribute": "charisma" },
+        "usCoutumes": { "name": "Us & coutumes", "level": 0, "attribute": "charisma" },
+
+        "bibliotheque": { "name": "Bibliothèque", "level": 0, "attribute": "sensus" },
+        "discretion": { "name": "Discrétion", "level": 0, "attribute": "sensus" },
+        "divination": { "name": "Divination", "level": 0, "attribute": "sensus" },
+        "estimation": { "name": "Estimation", "level": 0, "attribute": "sensus" },
+        "fouille": { "name": "Fouille", "level": 0, "attribute": "sensus" },
+        "orientation": { "name": "Orientation", "level": 0, "attribute": "sensus" },
+        "pieges": { "name": "Pièges", "level": 0, "attribute": "sensus" },
+        "pistage": { "name": "Pistage", "level": 0, "attribute": "sensus" },
+        "survie": { "name": "Survie", "level": 0, "attribute": "sensus" },
+        "vigilance": { "name": "Vigilance", "level": 0, "attribute": "sensus" },
+
+        "agriculture": { "name": "Agriculture", "level": 0, "attribute": "spiritus" },
+        "alchimie": { "name": "Alchimie", "level": 0, "attribute": "spiritus" },
+        "artillerie": { "name": "Artillerie", "level": 0, "attribute": "spiritus" },
+        "artisanat": { "name": "Artisanat", "level": 0, "attribute": "spiritus" },
+        "ecriture": { "name": "Écriture", "level": 0, "attribute": "spiritus" },
+        "gpatrimoine": { "name": "G.patrimoine", "level": 0, "attribute": "spiritus" },
+        "herboristerie": { "name": "Herboristerie", "level": 0, "attribute": "spiritus" },
+        "histoire": { "name": "Histoire", "level": 0, "attribute": "spiritus" },
+        "ingenierie": { "name": "Ingénierie", "level": 0, "attribute": "spiritus" },
+        "langage": { "name": "Langage", "level": 0, "attribute": "spiritus" },
+        "medecine": { "name": "Médecine", "level": 0, "attribute": "spiritus" },
+        "mythologie": { "name": "Mythologie", "level": 0, "attribute": "spiritus" },
+        "navigation": { "name": "Navigation", "level": 0, "attribute": "spiritus" },
+        "occultisme": { "name": "Occultisme", "level": 0, "attribute": "spiritus" },
+        "resistance": { "name": "Résistance", "level": 0, "attribute": "spiritus" },
+        "strategie": { "name": "Stratégie", "level": 0, "attribute": "spiritus" },
+        "theologie": { "name": "Théologie", "level": 0, "attribute": "spiritus" },
+        "zoologie": { "name": "Zoologie", "level": 0, "attribute": "spiritus" }
+      },
+      "experience": 0,
+      "glory": {
+        "level": 0,
+        "points": 0
+      },
+      
+      "equipment": {
+        "gold": 0,
+        "items": []
+      }
+    },
+    "PNJ": {
+        "biography": "",
+        "origin": { "region": "", "languages": [], "culture": "", "taille": "", "age": "", "poids": "" },
+        "creationPoints": 200,
+        "health": { "value": 10, "min": 0, "max": 10 },
+        "power": { "value": 5, "min": 0, "max": 5 },
+        "characteristics": {
+          "corpus": { "value": 0, "label": "Corpus", "modifier": [] },
+          "charisma": { "value": 0, "label": "Charisma", "modifier": [] },
+          "sensus": { "value": 0, "label": "Sensus", "modifier": [] },
+          "spiritus": { "value": 0, "label": "Spiritus", "modifier": [] }
+        },
+        "career": { "primary": {}, "secondary": {}, "tertiary": {} },
+        "advantages": [],
+        "defects": [],
+        "skills": {},
+        "experience": 0,
+        "glory": { "level": 0, "points": 0 },
+        "equipment": { "gold": 0, "items": [] }
+    },
+    "vehicle": {
+      "speed": 60,
+      "power": 100,
+      "armor": 3,
+      "capacity": 10,
+      "ammo": 50,
+      "health": {
+        "value": 20,
+        "min": 0,
+        "max": 20
+      },
+      "upgrades": "",
+      "description": "",
+      "type": []
+    }
+  },
+  "Item": {
+    "types": ["item"],
+    "htmlFields": ["description"],
+    "item": {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "attributes": {},
+      "groups": {}
+    }
+  }
+}

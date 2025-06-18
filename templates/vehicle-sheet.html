@@ -1,0 +1,137 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+
+  <div class="vehicle-sheet">
+    <!-- HEADER -->
+    <header class="sheet-header">
+      <div class="header-left">
+        <img class="vehicle-img" src="{{data.img}}" data-edit="img" alt="{{data.name}}" title="{{data.name}}">
+      </div>
+      <div class="header-right">
+        <!-- Informations de base sur le véhicule -->
+        <div class="header-line">
+          <label>
+            <span class="label-text">Nom :</span>
+            <input type="text" name="name" value="{{data.name}}" placeholder="Nom du véhicule">
+          </label>
+          <label>
+            <span class="label-text">Type :</span>
+            <select name="system.type">
+              <option value="vehicule" {{#if (eq systemData.type "vehicule")}}selected{{/if}}>Véhicule</option>
+              <option value="artillerie" {{#if (eq systemData.type "artillerie")}}selected{{/if}}>Artillerie</option>
+              <option value="navire" {{#if (eq systemData.type "navire")}}selected{{/if}}>Navire</option>
+            </select>
+            
+          </label>
+        </div>
+        <div class="header-line">
+          <label>
+            <span class="label-text">Fabricant :</span>
+            <input type="text" name="system.manufacturer" value="{{systemData.manufacturer}}" placeholder="Nom du fabricant">
+          </label>
+          <label>
+            <span class="label-text">Modèle / Année :</span>
+            <input type="text" name="system.model" value="{{systemData.model}}" placeholder="Modèle et année">
+          </label>
+        </div>
+        <div class="header-line">
+          <label>
+            <span class="label-text">Vitesse (km/h) :</span>
+            <input type="number" name="system.speedVeh" value="{{systemData.speedVeh}}" placeholder="Vitesse">
+          </label>
+          <label>
+            <span class="label-text">Puissance :</span>
+            <input type="number" name="system.powerVeh" value="{{systemData.powerVeh}}" placeholder="Puissance">
+          </label>
+        </div>
+        <div class="header-line">
+          <label>
+            <span class="label-text">Armure (PS) :</span>
+            <input type="number" name="system.armorVeh" value="{{systemData.armorVeh}}" placeholder="Points de Structure">
+            <small>(1 PS = 10 PV)</small>
+          </label>
+          <label>
+            <span class="label-text">Capacité :</span>
+            <input type="number" name="system.capacityVeh" value="{{systemData.capacityVeh}}" placeholder="Capacité de charge">
+          </label>
+        </div>
+        <div class="header-line">
+          <label>
+            <span class="label-text">Munitions :</span>
+            <input type="number" name="system.ammoVeh" value="{{systemData.ammoVeh}}" placeholder="Nombre de munitions">
+          </label>
+        </div>
+        <!-- Options spécifiques pour l'artillerie -->
+        {{#if (eq systemData.type "artillerie")}}
+        <div class="header-line artillery-options">
+          <label>
+            <span class="label-text">Servants requis :</span>
+            <input type="number" name="system.servants" value="{{systemData.servants}}" placeholder="Servants requis">
+          </label>
+          <label>
+            <span class="label-text">Rounds de rechargement :</span>
+            <input type="number" name="system.reloadRounds" value="{{systemData.reloadRounds}}" placeholder="Rounds">
+          </label>
+        </div>
+        {{/if}}
+      </div>
+    </header>
+  
+    <!-- ONGLETS -->
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="overview">Vue d'ensemble</a>
+      <a class="item" data-tab="stats">Statistiques</a>
+      <a class="item" data-tab="upgrades">Améliorations</a>
+      <a class="item" data-tab="description">Description</a>
+    </nav>
+  
+    <!-- CORPS DE LA FICHE -->
+    <section class="sheet-body">
+      <!-- Onglet Vue d'ensemble -->
+      <div class="tab overview" data-group="primary" data-tab="overview">
+        <h2>Vue d'ensemble</h2>
+        <p>Ce véhicule est conçu pour être robuste et efficace sur le champ de bataille. Consultez les autres onglets pour les détails techniques et les options d'amélioration.</p>
+      </div>
+  
+      <!-- Onglet Statistiques -->
+      <div class="tab stats" data-group="primary" data-tab="stats">
+        <h2>Statistiques Techniques</h2>
+        <div class="stats-grid">
+          <div class="stat-entry">
+            <label>Vitesse :</label>
+            <input type="number" name="system.speed" value="{{systemData.speed}}" placeholder="km/h">
+          </div>
+          <div class="stat-entry">
+            <label>Puissance :</label>
+            <input type="number" name="system.power" value="{{systemData.power}}" placeholder="Puissance">
+          </div>
+          <div class="stat-entry">
+            <label>Armure (PS) :</label>
+            <input type="number" name="system.armor" value="{{systemData.armor}}" placeholder="Points de Structure">
+          </div>
+          <div class="stat-entry">
+            <label>Capacité :</label>
+            <input type="number" name="system.capacity" value="{{systemData.capacity}}" placeholder="Charge">
+          </div>
+          <div class="stat-entry">
+            <label>Munitions :</label>
+            <input type="number" name="system.ammo" value="{{systemData.ammo}}" placeholder="Munitions">
+          </div>
+        </div>
+      </div>
+  
+      <!-- Onglet Améliorations -->
+      <div class="tab upgrades" data-group="primary" data-tab="upgrades">
+        <h2>Améliorations & Options</h2>
+        <textarea name="system.upgrades" placeholder="Liste des améliorations séparées par des virgules">{{systemData.upgrades}}</textarea>
+      </div>
+  
+      <!-- Onglet Description -->
+      <div class="tab description" data-group="primary" data-tab="description">
+        <h2>Description</h2>
+        <textarea name="system.description" placeholder="Description détaillée du véhicule">{{systemData.description}}</textarea>
+      </div>
+    </section>
+  </div>
+  
+
+</form>
