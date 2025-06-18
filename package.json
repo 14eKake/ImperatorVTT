@@ -5,7 +5,8 @@
   "scripts": {
     "css": "gulp css",
     "watch": "gulp",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "test": "echo \"No tests specified\""
   },
   "browserslist": [
     "last 3 versions"
@@ -14,8 +15,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "gulp": "^4.0.2",
-    "gulp-less": "^4.0.1"
-  },
-  "devDependencies": {}
+    "gulp": "^5.0.1",
+    "gulp-less": "^5.0.0"
+  }
 }
