@@ -1,0 +1,40 @@
+{
+  "SETTINGS.SimpleMacroShorthandN": "Syntaxe abrégée pour macros",
+  "SETTINGS.SimpleMacroShorthandL": "Activer une syntaxe abrégée permettant de référencer directement les attributs, par exemple @str au lieu de @attributes.str.value. Désactivez ce réglage si vous devez utiliser le modèle complet, par exemple @attributes.str.label.",
+  "SETTINGS.SimpleInitFormulaN": "Formule d'initiative",
+  "SETTINGS.SimpleInitFormulaL": "Entrez une formule d'initiative, par exemple d20+@dex",
+
+  "SIMPLE.ItemCreate": "Créer l'objet",
+  "SIMPLE.ItemEdit": "Modifier l'objet",
+  "SIMPLE.ItemDelete": "Supprimer l'objet",
+  "SIMPLE.ItemNew": "Nouvel objet",
+
+  "SIMPLE.NotifyInitFormulaUpdated": "La formule d'initiative a été mise à jour :",
+  "SIMPLE.NotifyInitFormulaInvalid": "Formule d'initiative invalide",
+  "SIMPLE.NotifyGroupDuplicate": "Le groupe d'attributs existe déjà.",
+  "SIMPLE.NotifyGroupAttrDuplicate": "Le groupe d'attributs existe déjà comme attribut.",
+  "SIMPLE.NotifyGroupAlphanumeric": "Les noms de groupes ne peuvent pas contenir d'espaces ni de points.",
+  "SIMPLE.NotifyGroupReserved": "Le groupe \"{key}\" est réservé et ne peut pas être utilisé.",
+  "SIMPLE.NotifyAttrDuplicate": "La clé d'attribut existe déjà comme groupe.",
+  "SIMPLE.NotifyAttrInvalid": "Les clés d'attribut ne peuvent pas contenir d'espaces ni de points.",
+
+  "SIMPLE.ResourceMin": "Min",
+  "SIMPLE.ResourceValue": "Valeur",
+  "SIMPLE.ResourceMax": "Max",
+
+  "SIMPLE.DefineTemplate": "Définir comme modèle",
+  "SIMPLE.UnsetTemplate": "Supprimer le modèle",
+  "SIMPLE.NoTemplate": "Pas de modèle",
+
+  "SIMPLE.AttributeKey": "Clé d'attribut",
+  "SIMPLE.AttributeValue": "Valeur",
+  "SIMPLE.AttributeLabel": "Libellé",
+  "SIMPLE.AttributeDtype": "Type de donnée",
+
+  "SIMPLE.DeleteGroup": "Supprimer le groupe ?",
+  "SIMPLE.DeleteGroupContent": "Voulez-vous supprimer ce groupe ? Cela supprimera également tous les attributs qu'il contient :",
+
+  "SIMPLE.Create": "Créer",
+  "SIMPLE.New": "Nouveau"
+}
+
