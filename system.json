@@ -2,7 +2,7 @@
   "id": "imperator",
   "version": "0.0.1",
   "title": "Imperator VTT",
-  "url": "",
+  "url": "https://github.com/example/ImperatorVTT",
   "description": "Un systéme simple pour jouer à Imperator, baser entièrement sur le code de Atropos dans le cadre de son Simple imperator System for Foundry",
   "license": "LICENSE.txt",
   "authors": [
@@ -32,6 +32,6 @@
   },
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "manifest": "",
-  "download": ""
+  "manifest": "https://github.com/example/ImperatorVTT/releases/latest/download/system.json",
+  "download": "https://github.com/example/ImperatorVTT/releases/download/v0.0.1/ImperatorVTT.zip"
 }
