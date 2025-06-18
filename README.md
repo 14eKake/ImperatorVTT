@@ -17,9 +17,6 @@ This repository contains a simple game system for **Foundry VTT** inspired by At
 
 After these steps start Foundry VTT and select **Imperator VTT** as the game system when creating a world.
 
-### Languages
-
-The system interface is available in English, Polish and now French. You can change the language in Foundry's configuration menu.
 
 ## Development
 
