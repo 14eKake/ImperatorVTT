@@ -2,6 +2,22 @@
 import { EntitySheetHelper } from "./helper.js";
 
 /**
+ * Helper function to replace formula data - Compatible with Foundry V13
+ * Replaces @property references with actual values from data
+ * This replaces the deprecated Roll.replaceFormulaData() method
+ * @param {string} formula - The formula string with @ references
+ * @param {object} data - The data object containing values
+ * @returns {string} - The formula with replaced values
+ */
+function _replaceFormulaData(formula, data) {
+  if (!formula || typeof formula !== 'string') return formula;
+  return formula.replace(/@([a-zA-Z0-9_.]+)/g, (match, path) => {
+    const value = foundry.utils.getProperty(data, path);
+    return value !== undefined ? value : match;
+  });
+}
+
+/**
  * Extension du document de base Actor pour prendre en charge les attributs et groupes,
  * avec une boîte de dialogue personnalisée pour la création de template.
  * @extends {Actor}
@@ -205,19 +221,19 @@ export class SimpleActor extends Actor {
         // En mode shorthand, on remplace directement dans data.items en vérifiant si le sous-attribut existe
         if ( data.items[item][k][gk] ) {
           formula = data.items[item][k][gk].replace('@item.', `@items.${item}.`);
-          data.items[item][k][gk] = Roll.replaceFormulaData(formula, data);
+          data.items[item][k][gk] = _replaceFormulaData(formula, data);
         } else if ( data.items[item][k] ) {
           formula = data.items[item][k].replace('@item.', `@items.${item}.`);
-          data.items[item][k] = Roll.replaceFormulaData(formula, data);
+          data.items[item][k] = _replaceFormulaData(formula, data);
         }
       } else {
         // En mode non-shorthand, la structure des attributs est plus imbriquée
         if ( data.items[item]['attributes'][k][gk] ) {
           formula = data.items[item]['attributes'][k][gk]['value'].replace('@item.', `@items.${item}.attributes.`);
-          data.items[item]['attributes'][k][gk]['value'] = Roll.replaceFormulaData(formula, data);
+          data.items[item]['attributes'][k][gk]['value'] = _replaceFormulaData(formula, data);
         } else if ( data.items[item]['attributes'][k]['value'] ) {
           formula = data.items[item]['attributes'][k]['value'].replace('@item.', `@items.${item}.attributes.`);
-          data.items[item]['attributes'][k]['value'] = Roll.replaceFormulaData(formula, data);
+          data.items[item]['attributes'][k]['value'] = _replaceFormulaData(formula, data);
         }
       }
     }
@@ -242,10 +258,10 @@ export class SimpleActor extends Actor {
       }
       // Si l'attribut possède une propriété 'value', on remplace la formule par la valeur évaluée
       if ( data.attributes[k]?.value ) {
-        data.attributes[k].value = Roll.replaceFormulaData(String(data.attributes[k].value), data);
+        data.attributes[k].value = _replaceFormulaData(String(data.attributes[k].value), data);
       } else if ( attr ) {
         // Sinon, si on est dans le cas d'un attribut groupé, on remplace la valeur correspondante
-        data.attributes[k][attr].value = Roll.replaceFormulaData(String(data.attributes[k][attr].value), data);
+        data.attributes[k][attr].value = _replaceFormulaData(String(data.attributes[k][attr].value), data);
       }
       // Si le mode shorthand est activé, on simplifie la structure en déplaçant la valeur évaluée directement à la racine
       if ( shorthand ) {

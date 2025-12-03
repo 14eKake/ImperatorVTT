@@ -13,9 +13,11 @@ export class SimpleNpcSheet extends ActorSheet {
     
     /** Prépare les données à transmettre au template PNJ */
     async getData(options) {
-      const data = await super.getData(options);
-      data.systemData = data.data.system;
-      return data;
+      const context = await super.getData(options);
+      // V13 compatible: Use context.system instead of deprecated context.data.system
+      // In V13, super.getData() returns context.system directly
+      context.systemData = context.system || context.actor?.system;
+      return context;
     }
     
     /** Active les écouteurs (optionnel pour le moment, on peut laisser vide) */

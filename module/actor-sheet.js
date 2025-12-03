@@ -209,7 +209,8 @@ export class SimpleActorSheet extends ActorSheet {
             console.log("Formule de jet :", formula, "Seuil :", threshold);
             const rollData = this.actor.getRollData();
             const roll = new Roll(formula, rollData);
-            await roll.evaluate({ async: true });
+            // V13 compatible: evaluate() is always async, no need for { async: true }
+            await roll.evaluate();
             const diceResults = roll.terms[0]?.results || [];
             console.log("Résultats des dés :", diceResults);
             const successes = diceResults.reduce((acc, d) => {
@@ -346,7 +347,8 @@ export class SimpleActorSheet extends ActorSheet {
 }
 
 // Hook pour attacher des écouteurs aux boutons de réaction dans les messages de chat
-Hooks.on("renderChatMessage", (html, message) => {
+// V13 compatible: Correct parameter order is (message, html, data)
+Hooks.on("renderChatMessage", (message, html, data) => {
   console.log("Rendu d'un message de chat avec flags :", message.flags);
   // Vérifier que message.flags existe et que attackReaction est défini
   if (message.flags?.attackReaction) {
@@ -368,7 +370,8 @@ Hooks.on("renderChatMessage", (html, message) => {
       }
       console.log("Formule de défense utilisée :", defenseFormula);
       const roll = new Roll(defenseFormula, targetActor.getRollData());
-      roll.evaluate({ async: true }).then(() => {
+      // V13 compatible: evaluate() is always async, no need for { async: true }
+      roll.evaluate().then(() => {
         console.log("Résultat du jet de défense :", roll.total);
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: targetActor }),
